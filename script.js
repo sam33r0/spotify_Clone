@@ -11,13 +11,23 @@ const songs=[
     {songName: 'Tune Jo Na Kaha', filePath: 'song/9.mp3', coverPath: 'cover/9.jpg'},
     {songName: 'Raam Siya Raam', filePath: 'song/10.mp3', coverPath: 'cover/10.jpg'}
 ];
+let html='';
+songs.forEach((element,i)=>{
+    html+=`<div class="songItem">
+    <img id="igu" src="cover/${i+1}.jpg" alt="UUFFFF!">
+    <span class="songName">${songs[i].songName}</span>
+    <span class="songListPlay"><span class="timestamp"><span class="ts"></span><i class='songItemPlay bx bx-play'></i></span><span></span></span>
+</div>`;
+})
+document.querySelector(".sdad").innerHTML=html;
 let songItems=Array.from(document.getElementsByClassName('songItem'));
 songItems.forEach((element, i)=>{
-    element.getElementsByTagName("img")[0].src=songs[i].coverPath;
-    element.getElementsByClassName("songName")[0].innerText=songs[i].songName;
     let aud=new Audio(songs[i].filePath);
     aud.addEventListener('loadeddata',()=>{
-        element.getElementsByClassName("ts")[0].innerText=`${parseInt((aud.duration/60)%60)}:${parseInt(aud.duration%60)}`;
+        let a=parseInt(aud.duration%60);
+        if(a<10)
+        a=`0${a}`;
+        element.getElementsByClassName("ts")[0].innerText=`${parseInt((aud.duration/60)%60)}:${a}`;
     })
 })
 let audioElement =new Audio('song/1.mp3');
