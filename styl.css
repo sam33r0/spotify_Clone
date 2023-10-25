@@ -12,6 +12,9 @@ nav{
     font-family: poppins, sans-serif;
     align-items: center;
 }
+.songName{
+    cursor: pointer;
+}
 nav a{
     text-decoration: none;
     color: white;

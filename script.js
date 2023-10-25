@@ -6,6 +6,7 @@ songs.forEach((element,i)=>{
     <span class="songName">${songs[i].songName}</span>
     <span class="songListPlay"><span class="timestamp"><span class="ts"></span><i class='songItemPlay bx bx-play'></i></span><span></span></span>
 </div>`;
+console.log(songs[i],i);
 })
 document.querySelector(".sdad").innerHTML=html;
 let songItems=Array.from(document.getElementsByClassName('songItem'));
@@ -85,6 +86,16 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element , i
         masterPlay.classList.remove('bx-play');        
     })
 })
+Array.from(document.getElementsByClassName('songName')).forEach((element , i )=>{
+    element.addEventListener('click',()=>{
+        makeAllPlays(i);
+        audioElement.src=songs[i].filePath;
+        audioElement.currentTime=0;
+        audioElement.play();
+        masterPlay.classList.add('bx-pause');
+        masterPlay.classList.remove('bx-play');        
+    })
+})
 document.getElementById("next").addEventListener('click',()=>
 {
     if(songIndex<9)
@@ -101,6 +112,7 @@ document.getElementById("next").addEventListener('click',()=>
     masterPlay.classList.add('bx-pause');
     masterPlay.classList.remove('bx-play');  
 });
+document.getElementById()
 document.getElementById("prev").addEventListener('click',()=>{
     if(songIndex>0)
     songIndex-=1;
