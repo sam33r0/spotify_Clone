@@ -98,7 +98,7 @@ Array.from(document.getElementsByClassName('songName')).forEach((element , i )=>
 })
 document.getElementById("next").addEventListener('click',()=>
 {
-    if(songIndex<9)
+    if(songIndex<19)
     songIndex+=1;
     else{
         songIndex=0;
@@ -112,12 +112,11 @@ document.getElementById("next").addEventListener('click',()=>
     masterPlay.classList.add('bx-pause');
     masterPlay.classList.remove('bx-play');  
 });
-document.getElementById()
 document.getElementById("prev").addEventListener('click',()=>{
     if(songIndex>0)
     songIndex-=1;
     else
-    songIndex=9;
+    songIndex=19;
     makeAllPlays(songIndex); 
     gif.style.opacity= 1;
     audioElement.currentTime=0;
